@@ -7,6 +7,11 @@ const blogdata = [
     user_id: 1,
   },
   {
+    title: "Sample Delivered to Test Chamber",
+    content: "If you follow standard insertion procedures, everything will be fine.",
+    user_id: 1
+  },
+  {
     title: "Project Update",
     content: "We've boosted the Anti-Mass Spectrometer to 105 percent. Bit of a gamble, but we need the extra resolution.",
     user_id: 2

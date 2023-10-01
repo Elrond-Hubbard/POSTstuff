@@ -1,7 +1,10 @@
 const router = require('express').Router();
+const User = require('../../models/User')
+const Blog = require('../../models/Blog')
 
-router.get('/', (req, res) => {
-    res.send('apiUsers')
+router.get('/', async (req, res) => {
+    const userData = await User.findAll();
+    res.json(userData)
 })
 
 router.get('/login', (req, res) => {
