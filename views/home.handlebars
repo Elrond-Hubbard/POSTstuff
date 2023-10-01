@@ -1,1 +1,7 @@
-<h1>HOMEPAGE</h1>
+{{#each blogs}}
+<card>
+    <h3>{{title}}</h3>
+    <h5>{{user.username}}</h5>
+    <p>{{content}}</p>
+</card>
+{{/each}}
