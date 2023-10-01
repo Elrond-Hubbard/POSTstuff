@@ -7,4 +7,6 @@ router.post('/', (req, res) => {
   .then((data) => res.json(data))
 })
 
+// Create new comment
+
 module.exports = router;
