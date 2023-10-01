@@ -1,7 +1,7 @@
 const router = require('express').Router();
 
-router.get('/', (req, res) => {
-    res.send('Hello, world!')
-})
+const pageRoutes = require('./routes')
+
+router.use('/', pageRoutes);
 
 module.exports = router;
