@@ -14,4 +14,10 @@ router.get("/:id", (req, res) => {
   );
 });
 
+// Create new blog
+router.post('/', (req, res) => {
+  Blog.create(req.body)
+  .then((data) => res.json(data))
+})
+
 module.exports = router;
