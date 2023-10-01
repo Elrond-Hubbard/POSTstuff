@@ -1,9 +1,17 @@
-const router = require('express').Router();
-const {User, Blog} = require('../../models/index');
+const router = require("express").Router();
+const { User, Blog } = require("../../models/index");
 
-router.get('/', (req, res) => {
-    Blog.findAll({include: [User]})
-        .then((data) => res.json(data))
-})
+// Get all blogs
+router.get("/", (req, res) => {
+  Blog.findAll({ include: [User] })
+  .then((data) => res.json(data));
+});
+
+// Get one blog
+router.get("/:id", (req, res) => {
+  Blog.findOne({ include: [User], where: { id: req.params.id } })
+  .then((data) => res.json(data)
+  );
+});
 
 module.exports = router;
