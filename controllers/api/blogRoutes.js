@@ -1,9 +1,8 @@
 const router = require('express').Router();
-const Blog = require('../../models/User');
-const User = require('../../models/User')
+const {User, Blog} = require('../../models/index');
 
 router.get('/', (req, res) => {
-    Blog.findAll({include: User})
+    Blog.findAll({include: [User]})
         .then((data) => res.json(data))
 })
 
