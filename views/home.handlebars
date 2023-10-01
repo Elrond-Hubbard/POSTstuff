@@ -1,7 +1,8 @@
+<h1>Activity:</h1>
 {{#each blogs}}
-<card>
-    <h3>{{title}}</h3>
+<div id="post">
+    <a href="/blog/{{id}}">{{title}}</a>
     <h5>{{user.username}}</h5>
     <p>{{content}}</p>
-</card>
+</div>
 {{/each}}
