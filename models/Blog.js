@@ -19,10 +19,6 @@ Blog.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    date: {
-      type: DataTypes.DATE,
-      allowNull: false,
-    },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
@@ -33,6 +29,7 @@ Blog.init(
   },
   {
     sequelize,
+    timestamps: false,
     freezeTableName: true,
     modelName: "blog",
   }
