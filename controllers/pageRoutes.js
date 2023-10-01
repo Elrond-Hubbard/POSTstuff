@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User, Blog } = require("../models/index");
+const { User, Blog, Comment } = require("../models/index");
 
 // Get homepage
 router.get("/", (req, res) => {
@@ -11,10 +11,27 @@ router.get("/", (req, res) => {
 
 // Get blog page
 router.get("/blog/:id", (req, res) => {
-  Blog.findOne({ include: [User], where: { id: req.params.id } }).then((data) => {
-    const blog = data.get({plain: true})
-    res.render('blog', blog)
-  });
+  // Use Promise.all to execute both queries concurrently
+  Promise.all([
+    Blog.findOne({
+      include: [User, Comment],
+      where: { id: req.params.id },
+    }),
+    Comment.findAll({
+      include: [User],
+      where: { blog_id: req.params.id },
+    }),
+  ])
+    .then(([blogData, commentsData]) => {
+      const blog = blogData.get({ plain: true });
+      const comments = commentsData.map((comment) => comment.get({ plain: true }));
+
+      res.render("blog", { blog, comments }); // Render the view with both data
+    })
+    .catch((error) => {
+      console.error("Error fetching blog and comments:", error);
+      res.status(500).send("Internal Server Error");
+    });
 });
 
 router.get("/dash", (req, res) => {

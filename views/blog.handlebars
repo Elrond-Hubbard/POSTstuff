@@ -1,8 +1,15 @@
 <card>
-    <h1>{{title}}</h2>
-    <h5>{{user.username}}</h5>
-    <p>{{content}}</p>
+    <h1>{{blog.title}}</h2>
+    <h5>{{blog.user.username}}</h5>
+    <p>{{blog.content}}</p>
 </card>
+
+{{#each comments}}
+<card>
+    <h5>{{this.user.username}}</h5>
+    <p>{{this.content}}</p>
+</card>
+{{/each}}
 
 
 <textarea id="comment-input" placeholder="Leave a comment."></textarea>
