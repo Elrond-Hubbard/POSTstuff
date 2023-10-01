@@ -1,15 +1,15 @@
 const router = require('express').Router();
 
 router.get('/', (req, res) => {
-    res.send('Homepage')
+    res.render('home')
 })
 
 router.get('/dash', (req, res) => {
-    res.send('Dashboard')
+    res.render('dash')
 })
 
 router.get('/login', (req, res) => {
-    res.send('Login')
+    res.render('login')
 })
 
 module.exports = router;
