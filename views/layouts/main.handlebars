@@ -2,8 +2,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Black Mesa Memo Board</title>
-  <link rel="stylesheet" href="/css/jass.css">
   <link rel="stylesheet" href="/css/style.css">
+  
 </head>
 
 <body>
@@ -14,8 +14,14 @@
       </h1>
       <nav>
         <a href="/">Home</a>
+        {{#if loggedIn}}
         <a href="/dash">Dashboard</a>
+        {{/if}}
+        {{#if loggedIn}}
+        <a href="/logout">Logout</a>
+        {{else}}
         <a href="/login">Login</a>
+        {{/if}}
       </nav>
     </header>
 
@@ -23,5 +29,5 @@
         {{{ body }}}
       </main>
   </body>
-
+  <script src="../../public/script/login.js"></script>
 </html>

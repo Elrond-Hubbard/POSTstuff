@@ -21,17 +21,13 @@ router.get("/blog/:id", (req, res) => {
       include: [User],
       where: { blog_id: req.params.id },
     }),
-  ])
-    .then(([blogData, commentsData]) => {
-      const blog = blogData.get({ plain: true });
-      const comments = commentsData.map((comment) => comment.get({ plain: true }));
-
-      res.render("blog", { blog, comments }); // Render the view with both data
-    })
-    .catch((error) => {
-      console.error("Error fetching blog and comments:", error);
-      res.status(500).send("Internal Server Error");
-    });
+  ]).then(([blogData, commentsData]) => {
+    const blog = blogData.get({ plain: true });
+    const comments = commentsData.map((comment) =>
+      comment.get({ plain: true })
+    );
+    res.render("blog", { blog, comments }); // Render the view with both data
+  });
 });
 
 router.get("/dash", (req, res) => {
