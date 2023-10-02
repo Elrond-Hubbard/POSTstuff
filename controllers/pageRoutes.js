@@ -1,11 +1,12 @@
 const router = require("express").Router();
 const { User, Blog, Comment } = require("../models/index");
+const withAuth = require("../utils/auth");
 
 // Get homepage
 router.get("/", (req, res) => {
   Blog.findAll({ include: [User] }).then((data) => {
     const blogs = data.map((blog) => blog.get({ plain: true }));
-    res.render("home", { blogs });
+    res.render("home", { blogs, loggedIn: req.session.loggedIn });
   });
 });
 
@@ -26,12 +27,12 @@ router.get("/blog/:id", (req, res) => {
     const comments = commentsData.map((comment) =>
       comment.get({ plain: true })
     );
-    res.render("blog", { blog, comments }); // Render the view with both data
+    res.render("blog", { blog, comments, loggedIn: req.session.loggedIn }); // Render the view with both data
   });
 });
 
-router.get("/dash", (req, res) => {
-  res.render("dash");
+router.get("/dash", withAuth, (req, res) => {
+  res.render("dash", {loggedIn: req.session.loggedIn});
 });
 
 router.get("/login", (req, res) => {
