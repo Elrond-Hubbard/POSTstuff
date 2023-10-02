@@ -15,7 +15,11 @@ router.get('/:blog_id', (req, res) => {
 
 // Create new blog
 router.post('/', (req, res) => {
-  Blog.create(req.body)
+  Blog.create({
+    title: req.body.title,
+    content: req.body.content,
+    user_id: req.session.userId
+  })
   .then((data) => res.json(data))
 })
 

@@ -3,7 +3,6 @@
   <meta charset="UTF-8">
   <title>Black Mesa Memo Board</title>
   <link rel="stylesheet" href="/css/style.css">
-  
 </head>
 
 <body>
@@ -14,8 +13,8 @@
       </h1>
       <nav>
         <a href="/">Home</a>
-        <a href="/dash">Dashboard</a>
         {{#if loggedIn}}
+        <a href="/dash">Dashboard</a>
         <a href="" id="logout">Logout</a>
         {{else}}
         <a href="/login">Login</a>
@@ -26,7 +25,9 @@
       <main>
         {{{ body }}}
       </main>
+
   </body>
+  <script src="./script/post.js"></script>
   {{#if loggedIn}}
   <script src="./script/logout.js"></script>
   {{/if}}

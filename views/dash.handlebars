@@ -2,12 +2,20 @@
 {{#if loggedIn}}
 <h2>New Post:</h2>
 <h3>Title</h3>
-<input type="text" placeholder="Post title">
+<input id="blog-title" type="text" placeholder="Post title">
 <h3>Post</h3>
-<textarea id="comment-input" placeholder="Post content."></textarea>
-<button>submit</button>
+<textarea id="blog-input" placeholder="Post content."></textarea>
+<button id="blog-submit">submit</button>
 
 <h2>Post History:</h2>
+
+{{#each blogs}}
+<div id="post">
+    <a href="/blog/{{id}}">{{title}}</a>
+    <h5>{{user.username}}</h5>
+    <p>{{content}}</p>
+</div>
+{{/each}}
 
 
 {{/if}}
