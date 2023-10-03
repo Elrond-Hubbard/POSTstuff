@@ -12,7 +12,7 @@ const userdata = [
   {
     username: "bCalhoun",
     password: "beerIoweYa",
-  }
+  },
 ];
 
 const seedUser = () => User.bulkCreate(userdata);

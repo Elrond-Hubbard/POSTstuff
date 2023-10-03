@@ -1,44 +1,44 @@
 body {
-    margin: auto;
-    background-color: slategray;
+  margin: auto;
+  background-color: slategray;
 }
 header {
-    background-color: black;
-    color: orange;
+  background-color: black;
+  color: orange;
 }
 main {
-    margin: auto;
-    max-width: 1000px;
+  margin: auto;
+  max-width: 1000px;
 }
 h1 {
-    font-size: 50px;
+  font-size: 50px;
 }
 h5 {
-    font-size: 20px;
-    margin-top: 1%;
-    margin-bottom: 2%
+  font-size: 20px;
+  margin-top: 1%;
+  margin-bottom: 2%;
 }
 a {
-    font-size: 35px;
-    color: orange;
+  font-size: 35px;
+  color: orange;
 }
 p {
-    font-size: 20px;
-    margin-top: 0%;
-    margin-bottom: 5%;
+  font-size: 20px;
+  margin-top: 0%;
+  margin-bottom: 5%;
 }
 input {
-    background-color: black;
-    color: orange;
+  background-color: black;
+  color: orange;
 }
 #post {
-    border: solid;
-    margin: 2%;
-    padding: 2%;
+  border: solid;
+  margin: 2%;
+  padding: 2%;
 }
 #comment-input {
-    width: 100%;
-    height: 5em;
-    background-color: black;
-    color: orange;
+  width: 100%;
+  height: 5em;
+  background-color: black;
+  color: orange;
 }

@@ -1,4 +1,3 @@
-
 const newBlogHandler = async (event) => {
   event.preventDefault();
 
